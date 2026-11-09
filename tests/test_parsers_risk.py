@@ -19,10 +19,10 @@ NETTOP = """\
 syslogd.572,,,0,11485,
 udp4 *:63932<->*:*,lo0,,0,11485,
 Microsoft Outlo.3434,,,524638,186133,
-tcp4 192.168.1.158:58927<->52.96.191.242:443,en7,Established,524638,186133,
+tcp4 192.168.1.20:58927<->52.96.191.242:443,en7,Established,524638,186133,
 airportd.682,,,0,0,
 udp4 *:*<->*:*,,,,
-Cisco Secure Cl.3450,,,10,20,
+Example Agent.3450,,,10,20,
 tcp6 fe80::1%en7.59006<->fe80::2%en7.52380,en7,Established,10,20,
 """
 
@@ -33,7 +33,7 @@ def test_parse_nettop():
     ol = [f for f in flows if f.pid == 3434][0]
     assert ol.name == "Microsoft Outlo" and ol.iface == "en7"
     assert (ol.bytes_in, ol.bytes_out) == (524638, 186133)
-    assert ol.local == "192.168.1.158:58927" and ol.remote == "52.96.191.242:443"
+    assert ol.local == "192.168.1.20:58927" and ol.remote == "52.96.191.242:443"
     assert {f.pid for f in flows} == {572, 3434, 3450}
 
 
