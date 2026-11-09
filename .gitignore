@@ -1,0 +1,8 @@
+.venv/
+tmp/
+__pycache__/
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.DS_Store
