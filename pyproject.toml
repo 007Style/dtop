@@ -3,7 +3,7 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "dtop"
+name = "ddtop"
 version = "0.1.0"
 description = "dtop (Desultory Top) - find processes with very infrequent network activity, with a self-adjusting sliding window"
 readme = "README.md"
@@ -36,6 +36,8 @@ dtop = "dtop.cli:main"
 
 [project.urls]
 Homepage = "https://github.com/007Style/dtop"
+Source = "https://github.com/007Style/dtop"
+Issues = "https://github.com/007Style/dtop/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]

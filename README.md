@@ -9,13 +9,14 @@
 ![Python](https://img.shields.io/badge/python-3.10%2B-3776AB?logo=python&logoColor=white)
 ![Platforms](https://img.shields.io/badge/macOS%20%7C%20Linux%20%7C%20Windows-supported-2ea44f)
 ![UI](https://img.shields.io/badge/UI-Textual-0ea5e9)
-![Install](https://img.shields.io/badge/install-pipx-7c3aed)
+[![PyPI](https://img.shields.io/pypi/v/ddtop?label=PyPI&color=7c3aed)](https://pypi.org/project/ddtop/)
+![Install](https://img.shields.io/badge/pipx%20install-ddtop-7c3aed)
 ![Tests](https://img.shields.io/badge/tests-38%20passing-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 
 <br>
 
-![dtop main screen](assets/screenshot.png)
+![dtop main screen](https://raw.githubusercontent.com/007Style/dtop/main/assets/screenshot.png)
 
 <sub>`dtop --demo` — synthetic data, sorted by risk. The top row is a textbook beacon: periodic, public address, upload-heavy, interpreter.</sub>
 
@@ -90,11 +91,21 @@ whether to ignore them or kill them.
 
 ## Install
 
-dtop is a Python package that installs cleanly with **[pipx](https://pipx.pypa.io/)**, which gives
-it its own isolated environment and puts a `dtop` command on your `PATH`.
+dtop installs cleanly with **[pipx](https://pipx.pypa.io/)**, which gives it its own isolated
+environment and puts a `dtop` command on your `PATH`.
 
 ```bash
-# Straight from GitHub (recommended)
+pipx install ddtop
+```
+
+> **Heads up on the name:** the package on PyPI is **`ddtop`** (with two d's) because the name
+> `dtop` is already taken there by an unrelated Docker tool. You install `ddtop`, but the command
+> you run is still just **`dtop`**.
+
+Other ways to install:
+
+```bash
+# Straight from GitHub (latest main)
 pipx install git+https://github.com/007Style/dtop.git
 
 # Or from a local checkout
@@ -113,10 +124,10 @@ dtop               # go
 Upgrade, reinstall, remove:
 
 ```bash
-pipx upgrade dtop
+pipx upgrade ddtop
 pipx install --force .         # re-install after pulling new code
 pipx install -e .              # editable install for hacking on it
-pipx uninstall dtop
+pipx uninstall ddtop
 ```
 
 If `dtop: command not found` after installing, run `pipx ensurepath` and open a new terminal.
@@ -124,8 +135,6 @@ If `dtop: command not found` after installing, run `pipx ensurepath` and open a 
 **Requirements:** Python 3.10 or newer. Dependencies ([Textual](https://textual.textualize.io/) and
 [psutil](https://github.com/giampaolo/psutil)) are installed for you. No compiler and no Xcode
 required.
-
-> dtop is not published on PyPI yet, so install from the GitHub URL above.
 
 ## Quick start
 
@@ -144,7 +153,7 @@ Let it run. Fast rhythms show up within a minute or two. Slow ones — the inter
 time, because dtop can only learn a two-hour cadence by watching it happen. **The longer dtop
 runs, the better it gets.**
 
-![Startup screen](assets/startup.png)
+![Startup screen](https://raw.githubusercontent.com/007Style/dtop/main/assets/startup.png)
 
 ## A tour of the screens
 
@@ -155,7 +164,7 @@ all), the sort order and the active collector. Below it, throughput graphs for i
 outbound traffic across all non-loopback interfaces, plus a *Desultory Window* panel explaining
 exactly how the current window was derived. The table lists the processes that qualify.
 
-![Main screen](assets/screenshot.png)
+![Main screen](https://raw.githubusercontent.com/007Style/dtop/main/assets/screenshot.png)
 
 ### Network interfaces — press `n`
 
@@ -163,7 +172,7 @@ Every interface on the machine: up/down, link speed, MTU, MAC, addresses, live i
 sparkline, **running totals since dtop started**, flow counts, errors/drops, and — importantly —
 **which processes are using each interface**.
 
-![Interfaces](assets/interfaces.png)
+![Interfaces](https://raw.githubusercontent.com/007Style/dtop/main/assets/interfaces.png)
 
 ### Process details — press `s`
 
@@ -171,20 +180,20 @@ Select a row with the arrow keys and press `s`: what it is, where it runs from, 
 how long it has been alive, its threads, its sockets right now, every interface and remote peer
 dtop has seen it use, and the full list of reasons behind its risk score.
 
-![Details](assets/details.png)
+![Details](https://raw.githubusercontent.com/007Style/dtop/main/assets/details.png)
 
 ### Kill — press `k`
 
 A small dialog lists the processes in the current view. Arrow keys to choose, **Enter** to
 `kill -9` immediately. Press `k` again or `Esc` to dismiss without killing anything.
 
-![Kill dialog](assets/kill.png)
+![Kill dialog](https://raw.githubusercontent.com/007Style/dtop/main/assets/kill.png)
 
 ### Help — press `h`
 
 The full how-to, the definition of *desultory*, and a guide to reading the table, all inside dtop.
 
-![Help](assets/help.png)
+![Help](https://raw.githubusercontent.com/007Style/dtop/main/assets/help.png)
 
 ## Hot keys
 
@@ -475,7 +484,7 @@ Ideas, roughly in the order they would be most useful:
 - [ ] Code-signature checks for the executable (macOS `codesign`, Windows Authenticode)
 - [ ] Windows ETW backend for true per-process byte counters
 - [ ] Linux eBPF backend for UDP and short-lived connections
-- [ ] PyPI release
+- [ ] Publish to PyPI as `ddtop`
 
 Contributions, field reports from Linux and Windows machines, and bug reports are all welcome.
 
